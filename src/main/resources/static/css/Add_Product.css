@@ -1,51 +1,121 @@
-body
-{
-	background-image: url("https://www.thespruceeats.com/thmb/hqqNrNhIpqPqV2u0T0K-IUzUsEo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-cuisine-of-north-india-1957883-d32a933f506d43f59ac38a8eb956884a.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-*{
-	color: rgb(192, 192, 192);
-	font-weight: bold;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
 }
 
-.addProducts{
-	background-color: transparent;
-	width: 400px;
-	height: 400px;
-	position: absolute;
-	left: 400px;
-	top: 30px;
+body {
+    background-image: url("https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100dvh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-input,textarea{
-	display: block;
-	padding: 5px;
-	border: none;
-	outline: none;
-	background-color: transparent;
-	border-bottom: 1px darkgreen solid;
-	font-size: 15px;
-	width: 200px;
-	color: aqua;
-	
+
+.addProducts {
+    background: rgba(15, 15, 15, 0.88);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    position: static;
+    left: unset;
+    top: unset;
+    height: auto;
 }
-button
-{
-	color: rgb(192, 192, 192);
-	background-color: green;
-	border: 1px black solid;
-	padding: 9px;
-	cursor: pointer;
-	position: relative;
-	left: 45px;
-	font-weight: bold;
+
+.addProducts h2 {
+    color: #f0f0f0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 28px;
+    letter-spacing: -0.02em;
 }
-a{
-	position: relative;
-	top: 20px;
-	border: 1px solid darkslategray;
-	padding: 10px;
-	background-color: darkslategray;
-	text-decoration: none;
-	
+
+label, b {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    margin-top: 18px;
+}
+
+input, textarea {
+    display: block;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1.5px solid #333;
+    font-size: 15px;
+    width: 100%;
+    color: #f0f0f0;
+    font-family: 'Outfit', sans-serif;
+    transition: border-color 0.2s ease;
+}
+
+input:focus, textarea:focus {
+    border-bottom-color: #4caf50;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    color: white;
+    background-color: #2d6a4f;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Outfit', sans-serif;
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.1s ease;
+    position: static;
+    left: unset;
+}
+
+button:hover {
+    background-color: #1b4332;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+a {
+    display: inline-block;
+    margin-top: 16px;
+    border: 1px solid #333;
+    padding: 9px 18px;
+    background-color: transparent;
+    text-decoration: none;
+    color: #aaa;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s ease, color 0.2s ease;
+    position: static;
+    top: unset;
+}
+
+a:hover {
+    background-color: #1a1a1a;
+    color: white;
 }

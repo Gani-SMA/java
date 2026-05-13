@@ -8,8 +8,9 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.entities.Product;
 import com.example.demo.repositories.ProductRepository;
+
 @Component
-public class ProductServices 
+public class ProductServices
 {
 	@Autowired
 	private ProductRepository productRepository;
@@ -21,28 +22,21 @@ public class ProductServices
 
 	public List<Product> getAllProducts()
 	{
-		List<Product> products=(List<Product>)this.productRepository.findAll();
-		return products;
+		return (List<Product>) this.productRepository.findAll();
 	}
 
 	public Product getProduct(int id)
 	{
 		Optional<Product> optional = this.productRepository.findById(id);
-		Product product=optional.get();
-		return product;
+		return optional.orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
 	}
 
-	public void updateproduct(Product p,int id)
+	public void updateproduct(Product p, int id)
 	{
 		p.setPid(id);
-		Optional<Product> optional = this.productRepository.findById(id);
-		Product prod=optional.get();
-
-		if(prod.getPid()==id)
-		{
-			this.productRepository.save(p);				
-		}
+		this.productRepository.save(p);
 	}
+
 	public void deleteProduct(int id)
 	{
 		this.productRepository.deleteById(id);
@@ -50,13 +44,7 @@ public class ProductServices
 
 	public Product getProductByName(String name)
 	{
-		
-		Product product= this.productRepository.findByPname(name);
-		if(product!=null)
-		{
-			return product;
-		}
-		return null;
-	
+		if (name == null || name.trim().isEmpty()) return null;
+		return this.productRepository.findByPnameIgnoreCase(name.trim());
 	}
 }

@@ -8,10 +8,10 @@
 </head>
 
 <body>
-		<a href="/services">Back_To_Services</a>
+		<a href="/admin/services">Back_To_Services</a>
 	<div class="updateProduct">
 		<h3 style="font-weight: bolder;color: seagreen;">UPDATE EXISTING PRODUCT :</h3>
-		<form action="" th:action="@{'/updatingProduct/'+${product.pid}}" th:object="${product}">
+		<form action="" th:action="@{'/updatingProduct/'+${product.pid}}" th:object="${product}" method="post">
 			Product_Id:
 			<input type="hidden" th:text="${product.pid}" th:value="${product.pid}" /><br />
 			Product_Name :

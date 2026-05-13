@@ -24,7 +24,7 @@ public class UserController
 		return "redirect:/admin/services";
 	}
 
-	@GetMapping("/updatingUser/{id}")
+	@PostMapping("/updatingUser/{id}")
 	public String updateUser(@ModelAttribute User user, @PathVariable("id") int id)
 	{
 		this.services.updateUser(user, id);

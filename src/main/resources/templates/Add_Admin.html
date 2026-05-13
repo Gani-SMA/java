@@ -1,34 +1,24 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
 	<meta charset="UTF-8" />
-	<title>Admin : Add</title>
-	<link rel="stylesheet" href="" th:href="@{/css/Add_Admin.css}" />
+	<title>Add admin — FoodFrenzy</title>
+	<link rel="stylesheet" th:href="@{/css/Add_Admin.css}" />
 </head>
-
 <body>
-	<a href="/admin/services">Back to Services</a>
 	<div class="addAdmin">
-		<h3 style="color: red;">ADD NEW ADMIN/PARTNER</h3>
-		<form action="" th:action="@{/addingAdmin}" method="post">
-			Admin_Name :
-			<input type="text" name="adminName" placeholder="Enter name..." class="adminName" minlength="2" required>
-			<br />
-
-			Admin_Email :
-			<input type="email" name="adminEmail" placeholder="Enter email..." class="adminEmail" required><br />
-
-
-			Admin_Number :
-			<input type="tel" name="adminNumber" placeholder="Enter 10 digit mobile number..." class="adminNumber"
-				pattern="[0-9]{10}" required /><br />
-
-
+		<h2>Add new admin</h2>
+		<form th:action="@{/addingAdmin}" method="post">
+			<b>Name</b>
+			<input type="text" name="adminName" placeholder="Full name" minlength="2" required />
+			<b>Email</b>
+			<input type="email" name="adminEmail" placeholder="email@example.com" required />
+			<b>Phone number</b>
+			<input type="tel" name="adminNumber" placeholder="10-digit number" pattern="[0-9]{10}" required />
 			<input type="hidden" name="adminPassword" value="1234" />
-			<button type="submit">Add_Admin</button>
+			<button type="submit">Add admin</button>
 		</form>
+		<a href="/admin/services">← Back to dashboard</a>
 	</div>
 </body>
-
 </html>

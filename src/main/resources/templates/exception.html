@@ -46,10 +46,11 @@
 				<h1>Ooops...Sorry..!!!</h1>
 				<h3>Something went Wrong....!</h3>
 				<small>Exception has Occured....!!!</small><br>
+				<small style="color: red;" th:text="${errorMessage}"></small><br>
 				<small style="color: red;">1. May be you are trying to add null data which is not valid. <br /> OR <br />2 . Email is already registered..</small>
 				<br />
-				<a href="/services">Back</a>
-				<a href="http://www.google.com" target="_blank">Help</a>
+				<a href="/admin/services">Back</a>
+				<a href="/home">Home</a>
 			</div>
 		</div>
 	</center>

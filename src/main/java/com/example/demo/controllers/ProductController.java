@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import com.example.demo.entities.Product;
 import com.example.demo.services.ProductServices;
@@ -29,7 +28,7 @@ public class ProductController
 	}
 
 	//	UpdateProduct
-	@GetMapping("/updatingProduct/{productId}")
+	@PostMapping("/updatingProduct/{productId}")
 	public String updateProduct(@ModelAttribute Product product,@PathVariable("productId") int id)
 	{
 

@@ -6,10 +6,10 @@
 	<link rel="stylesheet" href="" th:href="@{/css/Update_Admin.css}" />
 </head>
 <body>
-		<a href="/services">Back to Services</a>
+		<a href="/admin/services">Back to Services</a>
 	<div class="updateAdmin">
 				<h3 style="color: red;">UPDATE EXISTING ADMIN / PARTNER DETAILS</h3>
-		<form action="" th:action="@{'/updatingAdmin/'+${admin.adminId}}" th:object="${admin}">
+		<form action="" th:action="@{'/updatingAdmin/'+${admin.adminId}}" th:object="${admin}" method="post">
 			Admin_Id :
 			<input type="hidden" name="adminId" th:value="${admin.adminId}" th:text="${admin.adminId}"/><br />
 			Admin_Name :

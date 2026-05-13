@@ -6,38 +6,35 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.entities.Admin;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
 
 @Component
-public class UserServices 
+public class UserServices
 {
 	@Autowired
 	private UserRepository userRepository;
 
 	public List<User> getAllUser()
 	{
-		List<User> users = (List<User>) this.userRepository.findAll();
-		return users;
+		return (List<User>) this.userRepository.findAll();
 	}
 
 	public User getUser(int id)
 	{
 		Optional<User> optional = this.userRepository.findById(id);
-		User user = optional.get();
-		return user;
-	}
-	public User getUserByEmail(String email)
-	{
-	 User user=	this.userRepository.findUserByUemail(email);
-	 return user;
+		return optional.orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 	}
 
-	public void updateUser(User user,int id)
+	public User getUserByEmail(String email)
+	{
+		return this.userRepository.findUserByUemail(email);
+	}
+
+	public void updateUser(User user, int id)
 	{
 		user.setU_id(id);
-		 this.userRepository.save(user);
+		this.userRepository.save(user);
 	}
 
 	public void deleteUser(int id)
@@ -47,22 +44,13 @@ public class UserServices
 
 	public void addUser(User user)
 	{
-	this.userRepository.save(user);
+		this.userRepository.save(user);
 	}
-	
-	public boolean validateLoginCredentials(String email,String password)
+
+	public boolean validateLoginCredentials(String email, String password)
 	{
-		List<User> users = (List<User>) this.userRepository.findAll();
-		for(User u:users)
-		{
-		if(u!=null && u.getUpassword().equals(password) && u.getUemail().equals(email))
-		{
-			return true;
-		}
-		}
-		return false;
+		if (email == null || password == null) return false;
+		User user = this.userRepository.findUserByUemail(email);
+		return user != null && user.getUpassword() != null && user.getUpassword().equals(password);
 	}
-	
-
-
 }

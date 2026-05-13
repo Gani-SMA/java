@@ -1,52 +1,117 @@
-@charset "ISO-8859-1";
-body
-{
-	background-image: url("https://media.istockphoto.com/id/1141797008/vector/table-knife-and-fork-vector.jpg?s=2048x2048&w=is&k=20&c=YRmUw6MWB0BqFGY91d6mCnRMVclhrUmlhg7Ms0Z5FRQ=");
-	background-repeat: no-repeat;
-	background-size: cover;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
 }
-*{
-	color: rgb(192, 192, 192);
-	font-weight: bold;
+
+body {
+    background-image: url("https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1920");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100dvh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-input{
-	display: block;
-	padding: 5px;
-	border: none;
-	outline: none;
-	background-color: transparent;
-	border-bottom: 1px darkgreen solid;
-	font-size: 15px;
-	width: 200px;
-	color: aqua;
+
+.addUser {
+    background: rgba(15, 15, 15, 0.88);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    position: static;
+    left: unset;
+    top: unset;
+    height: auto;
 }
-.addUser
-{
-	background-color: transparent;
-	width: 400px;
-	height: 400px;
-	position: absolute;
-	left: 400px;
-	top: 30px;
+
+.addUser h2 {
+    color: #f0f0f0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 28px;
+    letter-spacing: -0.02em;
 }
-button
-{
-	color: rgb(192, 192, 192);
-	background-color: green;
-	border: 1px black solid;
-	padding: 9px;
-	cursor: pointer;
-	position: relative;
-	left: 45px;
-	top: 20px;
-	font-weight: bold;
+
+label, b {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    margin-top: 18px;
 }
-a{
-	position: relative;
-	top: 20px;
-	border: 1px solid darkslategray;
-	padding: 10px;
-	background-color: darkslategray;
-	text-decoration: none;
-	
+
+input {
+    display: block;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1.5px solid #333;
+    font-size: 15px;
+    width: 100%;
+    color: #f0f0f0;
+    font-family: 'Outfit', sans-serif;
+    transition: border-color 0.2s ease;
+}
+
+input:focus {
+    border-bottom-color: #4caf50;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    color: white;
+    background-color: #2d6a4f;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Outfit', sans-serif;
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.1s ease;
+    position: static;
+    left: unset;
+    top: unset;
+}
+
+button:hover {
+    background-color: #1b4332;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+a {
+    display: inline-block;
+    margin-top: 16px;
+    border: 1px solid #333;
+    padding: 9px 18px;
+    background-color: transparent;
+    text-decoration: none;
+    color: #aaa;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s ease, color 0.2s ease;
+    position: static;
+    top: unset;
+}
+
+a:hover {
+    background-color: #1a1a1a;
+    color: white;
 }

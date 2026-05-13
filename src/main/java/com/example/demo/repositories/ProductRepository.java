@@ -9,4 +9,6 @@ public interface ProductRepository extends CrudRepository<Product,Integer>
 {
 	public Product findByPname(String name);
 
+	public Product findByPnameIgnoreCase(String name);
+
 }

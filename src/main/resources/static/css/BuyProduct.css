@@ -1,3 +1,238 @@
-body{
-	background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-image: url("https://images.pexels.com/photos/7219747/pexels-photo-7219747.jpeg?auto=compress&cs=tinysrgb&w=1920");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100dvh;
+    margin: 0;
+    color: #f0f0f0;
+}
+
+.welcome {
+    background: rgba(0,0,0,0.5);
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #f0f0f0;
+    letter-spacing: 0.01em;
+}
+
+.welcome marquee span {
+    color: #f4c430;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 12px 32px;
+}
+
+a.nav-back,
+a.nav-logout {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.1s ease;
+    position: static;
+    border: none;
+    width: auto;
+}
+
+a.nav-back {
+    background: rgba(255,255,255,0.1);
+    color: #f0f0f0;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+a.nav-back:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+a.nav-logout {
+    background: #e63946;
+    color: white;
+}
+
+a.nav-logout:hover {
+    background: #c1121f;
+}
+
+center {
+    padding: 0 24px 48px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.searchInput {
+    margin-top: 32px;
+    background: rgba(15,15,15,0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px 32px;
+}
+
+.searchInput h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+}
+
+.searchInput input {
+    padding: 12px 16px;
+    width: 100%;
+    max-width: 360px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    color: #f0f0f0;
+    font-size: 15px;
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.searchInput input:focus {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.searchInput button {
+    padding: 12px 24px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.searchInput button:hover {
+    background-color: #c1121f;
+}
+
+.searchInput button:active {
+    transform: scale(0.97);
+}
+
+smal {
+    display: block;
+    color: #f87171;
+    font-size: 13px;
+    margin-top: 10px;
+    min-height: 18px;
+}
+
+.details {
+    margin-top: 24px;
+    background: rgba(15,15,15,0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px 32px;
+}
+
+.details h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    margin: 0 0 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.details label,
+.details b {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    margin-top: 14px;
+}
+
+.details input {
+    display: block;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1.5px solid #333;
+    font-size: 15px;
+    width: 100%;
+    color: #f0f0f0;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 4px;
+}
+
+.details button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.details button:hover {
+    background: #1b4332;
+}
+
+.details button:active {
+    transform: scale(0.97);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+th {
+    padding: 10px 14px;
+    background-color: rgba(255,255,255,0.05);
+    color: #888;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+td {
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #ccc;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    text-align: left;
+}
+
+tr:last-child td {
+    border-bottom: none;
 }

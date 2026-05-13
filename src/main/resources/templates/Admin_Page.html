@@ -38,7 +38,7 @@
 				<a href="" class="btns" th:href="@{/addAdmin}">Add_Admin</a>
 			</div>
 
-			<div class="users" th:object="${userObject}">
+			<div class="users">
 				<h2>Users :</h2>
 				<table>
 					<tr>
@@ -106,7 +106,7 @@
 					<td th:text="${order.oPrice}"></td>
 					<td th:text="${order.oQuantity}"></td>
 					<td th:text="${order.totalAmmout}"></td>
-					<td th:text="${order.orderDate}"></td>
+					<td th:text="${#dates.format(order.orderDate, 'dd-MM-yyyy')}"></td>
 
 				</tr>
 			</table>

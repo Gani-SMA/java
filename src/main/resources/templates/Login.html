@@ -34,14 +34,11 @@
 				<form th:action="@{/userLogin}" method="post" class="form">
 					<b>Email :</b>
 					<input type="email" name="userEmail" placeholder="Enter email"><br />
-
 					<b>Password:</b>
-					<input type="password" name="userPassword" placeholder="Enter password" required maxlength="8" minlength="4" class="userPassword"><br />
-
+					<input type="password" name="userPassword" placeholder="Enter password" required minlength="4" class="userPassword"><br />
 					<small style="color: red;" th:text="${error2}"></small><br />
 					<button type="submit" class="loginButton">Log in</button><br>
-
-					<p>I don't have an account? <a href="register.html" style="color: green;">Register Here</a></p>
+					<p>I don't have an account? <a href="/register" style="color: green;">Register Here</a></p>
 				</form>
 			</div>
 		</div>

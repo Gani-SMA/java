@@ -1,130 +1,65 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8" />
-	<title>Buy Product </title>
-	<link rel="stylesheet" href="" />
+	<title>FoodFrenzy — Order</title>
+	<link rel="stylesheet" th:href="@{/css/BuyProduct.css}" />
 </head>
-<style>
-	body {
-		background-image: url("https://images.pexels.com/photos/7219747/pexels-photo-7219747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-		 background-size: cover; 
-	}
-
-	* {
-		font-size: 16px;
-		font-family: sans-serif;
-	}
-
-	.searchInput {
-		margin-top: 30px;
-	}
-
-	.searchInput input {
-		padding: 15px;
-		width: 270px;
-	}
-
-	.searchInput button {
-		padding: 15px;
-		width: 100px;
-		background-color: red;
-	}
-
-	.details {
-		margin-top: 70px;
-	}
-
-	.details input,
-	.details button {
-		display: block;
-		padding: 5px;
-		font-size: 16px;
-		
-
-	}
-
-	a {
-		border: 1px solid black;
-		background-color: darkgoldenrod;
-		color: black;
-		text-decoration: none;
-		padding: 7px;
-		width: 50px;
-		position: fixed;
-	}
-	.details th{
-		background-color: dimgray;
-		font-family: sans-serif;
-		padding: 10px;
-		border: none;
-	
-	}
-	td{
-		text-align: center;
-		border-bottom: 1px solid lightslategrey;
-	}
-	.welcome marquee,.welcome span
-	{
-		
-		width: 50%;
-		font-size: 20px;
-		font-family: sans-serif;
-		color: lavender;
-	}
-	
-</style>
 
 <body>
 	<div class="welcome">
-			<marquee direction="right"  behaviour="slide" 
-			scrollamount="15" loop="1">Welcome Back <span  th:text="${name}"></span>
-			</marquee><br />
+		<marquee direction="right" behaviour="slide" scrollamount="15" loop="1">
+			Welcome back, <span th:text="${name}"></span>
+		</marquee>
 	</div>
-	
-	<a href="/login">Back</a>
+
+	<div class="nav-links">
+		<a href="/login" class="nav-back">← Back</a>
+		<a href="/logout" class="nav-logout">Logout</a>
+	</div>
+
 	<center>
-
-		<form action="" th:action="@{/product/search}" method="post" class="searchInput">
-			<h1>Product Search :</h1>
-			<input type="text" name="productName" required placeholder="Please enter the Product Name....">
-			<button type="submit">SEARCH</button><br />
-			<smal style="color: red;" th:text="${message}"> </smal>
+		<form th:action="@{/product/search}" method="post" class="searchInput">
+			<h1>Search for a dish</h1>
+			<input type="text" name="productName" required placeholder="e.g. Chicken Biryani" />
+			<button type="submit">Search</button>
+			<smal th:text="${message}"></smal>
 		</form>
-		
-		<div th:if="${product!=null}" class="details">
-			<form action="" th:action="@{/product/order}" th:object="${product}" method="post">
-				ProductName :
-				<input type="text" value="" name="oName" th:value="${product.pname}" readonly /><br />
-				Product Price :
-				<input type="text" value="" name="oPrice" th:value="${product.pprice}" readonly /><br />
-				Quqntity :
-				<input type="number" placeholder="Minimun: 1KG" min="1" name="oQuantity" /><br />
 
-				<button type="submit">Order_Now</button>
+		<div th:if="${product != null}" class="details">
+			<form th:action="@{/product/order}" th:object="${product}" method="post">
+				<b>Product name</b>
+				<input type="text" name="oName" th:value="${product.pname}" readonly />
+				<b>Price (₹)</b>
+				<input type="text" name="oPrice" th:value="${product.pprice}" readonly />
+				<b>Quantity (kg)</b>
+				<input type="number" placeholder="Minimum: 1" min="1" name="oQuantity" />
+				<button type="submit">Place order</button>
 			</form>
 		</div>
-		
-		<div th:if="${orders!=null}" class="details">
-			<h2>Your Orders :</h2>
-			<table >
-				<tr>
-	
-					<th>Product_Name</th>
-					<th>Product_Price</th>
-					<th>Product_Quantity</th>
-					<th>Total_Ammount</th>
-					<th>Date</th>
-				</tr>
-				<tr th:each="order :${orders}">
-					<td th:text="${order.oName}"></td>
-					<td th:text="${order.oPrice}"></td>
-					<td th:text="${order.oQuantity}"></td>
-					<td th:text="${order.totalAmmout}"></td>
-					<td th:text="${order.orderDate}"></td>
 
-				</tr>
+		<div th:if="${orders != null and !#lists.isEmpty(orders)}" class="details">
+			<h2>Your orders</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Item</th>
+						<th>Price</th>
+						<th>Qty</th>
+						<th>Total</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="order : ${orders}">
+						<td th:text="${order.oName}"></td>
+						<td th:text="'₹' + ${order.oPrice}"></td>
+						<td th:text="${order.oQuantity}"></td>
+						<td th:text="'₹' + ${order.totalAmmout}"></td>
+						<td th:text="${#dates.format(order.orderDate, 'dd MMM yyyy')}"></td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 	</center>
